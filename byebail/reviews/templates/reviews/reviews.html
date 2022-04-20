@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% load static%}
+
+{% block content %}
+<main class="container my-5 d-flex flex-column justify-content-center">
+    <h2 class="text-light text-center">Reviews<h2>
+    <span class="w-100"><a href="#" class="btn btn-success border border-light"><i class="bi bi-plus-lg"></i></a></span>
+            {% for review in reviews %}
+            <div class="card my-2">
+                <h5 class="card-header">
+                    <span>{{review.smTitle}}</span>
+                    <span>
+                        {{review.rating}}
+                        <i class="bi bi-star-fill"></i>
+                    </span>
+                </h5>
+                <div class="card-body">
+                    <h5 class="card-title">{{review.title}} - {{review.author}}</h5>
+                    <p class="fs-6">{{review.text}}</p>
+                </div>
+            </div>
+            {% endfor %}
+</main>
+
+{% endblock content %}
